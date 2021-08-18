@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int count=0;
+
+int count_one (int n)
+{
+    while( n )
+    {
+        n = n&(n-1);
+        count++;
+    }
+    return count;
+}
+
+int main()
+{
+    unsigned int i;
+    scanf("%d",&i);
+    printf("%d",count_one(i));
+    
+}
