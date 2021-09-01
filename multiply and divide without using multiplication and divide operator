@@ -1,0 +1,38 @@
+#include<stdlib.h>
+#include<stdio.h>
+
+int multiply(int a, int b){            //multiply without * operator
+    
+    if(b==0)return 0;
+
+    if(b>0)return(a+multiply(a,b-1));
+        
+    if(b<0)return -multiply(a,-b);
+    
+}
+
+//Approach : Keep subtracting the dividend from the divisor until dividend becomes less than divisor. 
+//The dividend becomes the remainder, and the number of times subtraction is done becomes the quotient.
+int divide(int x, int y){                          //divide without using / operator
+    
+    if(y==0)return 0;
+    
+    int sign=(x*y<0)?-1:1;
+    
+    x = abs(x);
+    y = abs(y);
+    
+    int quotient=0;
+    
+    while(x>=y){
+        x=x-y;
+        ++quotient;
+    }
+    
+    return sign*quotient;
+}
+
+int main(){
+    printf("%d\n",multiply(5,-11));
+    printf("%d",divide(55,-11));
+}
